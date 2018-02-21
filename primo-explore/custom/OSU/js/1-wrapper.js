@@ -5,6 +5,6 @@
 
 var app = angular.module('centralCustom', ['angularLoad']);
 
-var applocal = angular.module('viewCustom', ['angularLoad']);
+var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 
 /************************************* END Bootstrap Script ************************************/

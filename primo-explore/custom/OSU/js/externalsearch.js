@@ -1,4 +1,4 @@
-// Add Google Scholar and Worldcat search in facet pane - FIX keyboard tabbing  
+// Add Google Scholar and Worldcat search in facet pane 
 app.component('prmFacetExactAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($scope) {

@@ -1,4 +1,4 @@
-// Hide/Show Summit Institutions - FIX
+// Hide/Show Summit Institutions 
 angular.element(document).ready(function () {
     hide_show_other_institutions();
 });
