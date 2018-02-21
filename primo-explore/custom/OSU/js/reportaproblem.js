@@ -1,4 +1,4 @@
-/*Add Report Problem Banner to Full Display
+//Add Report Problem Banner to Full Display
 applocal.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
     button: "Report a Problem",
@@ -13,4 +13,4 @@ applocal.constant('reportProblemOptions', {
           $scope.show = $location.path() === '/fulldisplay' || $location.path() === '/openurl'
           $scope.link = reportProblemOptions.base + $location.absUrl()
     }]
-  }); */ 
+  });
