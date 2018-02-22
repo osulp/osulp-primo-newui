@@ -5,8 +5,8 @@ angular.element(document).ready(function () {
 
 var enable_hide_show_other_institutions = false;
 var hide_show_other_institutions_default_state = "hidden";
-var hide_show_other_institutions_hide_libraries_button_label = "Hide Libraries";
-var hide_show_other_institutions_show_libraries_button_label = "Show Libraries";
+var hide_show_other_institutions_hide_libraries_button_label = "Hide Summit Libraries";
+var hide_show_other_institutions_show_libraries_button_label = "Show Summit Libraries";
 // hide/show other institutions set options from local config
 function hide_show_other_institutions(options) {
     if (typeof options === 'undefined') options = new Array();

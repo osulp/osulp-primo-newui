@@ -1,5 +1,5 @@
 // Add Google Scholar and Worldcat search in facet pane 
-app.component('prmFacetExactAfter', {
+applocal.component('prmFacetExactAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($scope) {
         console.log($scope.$parent.$ctrl.facetGroup.name);

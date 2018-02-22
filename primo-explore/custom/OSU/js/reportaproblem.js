@@ -1,4 +1,3 @@
-/*
 //Add Report Problem Banner to Full Display
 applocal.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
@@ -15,4 +14,3 @@ applocal.constant('reportProblemOptions', {
           $scope.link = reportProblemOptions.base + $location.absUrl()
     }]
   });
-  */

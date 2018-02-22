@@ -8,12 +8,13 @@
 
 var app = angular.module('centralCustom', ['angularLoad']);
 
-var applocal = angular.module('viewCustom', ['angularLoad', 'reportProblem']);
+var applocal = angular.module('viewCustom', ['angularLoad']);
 
+// var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
 
 // Add Google Scholar and Worldcat search in facet pane 
-app.component('prmFacetExactAfter', {
+applocal.component('prmFacetExactAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($scope) {
         console.log($scope.$parent.$ctrl.facetGroup.name);
@@ -37,8 +38,8 @@ angular.element(document).ready(function () {
 
 var enable_hide_show_other_institutions = false;
 var hide_show_other_institutions_default_state = "hidden";
-var hide_show_other_institutions_hide_libraries_button_label = "Hide Libraries";
-var hide_show_other_institutions_show_libraries_button_label = "Show Libraries";
+var hide_show_other_institutions_hide_libraries_button_label = "Hide Summit Libraries";
+var hide_show_other_institutions_show_libraries_button_label = "Show Summit Libraries";
 // hide/show other institutions set options from local config
 function hide_show_other_institutions(options) {
     if (typeof options === 'undefined') options = new Array();
@@ -98,12 +99,27 @@ applocal.component('prmLoansOverviewAfter', {
     template: '<div class=tiles-grid-tile><div class="layout-column tile-content"layout=column><div class="layout-column tile-header"layout=column><h2 class="header-link light-text"role=button tabindex=0><span>Interlibrary Loan</span></h2></div><div class="layout-column layout-align-center-center layout-margin layout-padding message-with-icon" layout=column layout-align="center center"><span><a href="https://access.library.oregonstate.edu/illiad.dll?" target="_blank" aria-label="Link to Interlibrary Loan login" tabindex="0">Log into your ILL account</a> to check pending requests and view articles.</span></div></div></div>'
 });
 // Add chat widget to header 
-app.component('prmSearchBookmarkFilterAfter', {
+applocal.component('prmSearchBookmarkFilterAfter', {
     bindings: {},
     template: '<div class="chat"><a ng-href="http://answers.library.oregonstate.edu/widget_standalone.php?hash=848ad121b384a3768c03838752654abb" target="_blank">Live Chat</a></div>'
 });
+//Add Report Problem Banner to Full Display
+applocal.constant('reportProblemOptions', {
+    message: "Having trouble accessing a resource?",
+    button: "Report a Problem",
+    base: "https://libraries.wsu.edu/online-access-issues?"
+});
+angular.module('reportProblem', []).component('prmActionListAfter', {
+    template: '\n    <div ng-if="show" class="bar filter-bar layout-align-center-center layout-row margin-top-medium" layout="row" layout-align="center center">\n        <span class="margin-right-small">{{ message }}</span>\n        <a ng-href="{{ link }}" target="_blank">\n            <button class="button-with-icon zero-margin md-button md-button-raised md-primoExplore-theme md-ink-ripple" type="button" aria-label="Report a Problem" style="color: #5c92bd;">\n                <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\n                <span style="text-transform: none;">{{ button }}</span>\n                <div class="md-ripple-container"></div>\n            </button>\n        </a>\n    </div>\n    ',
+    controller: ['$scope', '$location', '$httpParamSerializer', 'reportProblemOptions', function ($scope, $location, $httpParamSerializer, reportProblemOptions) {
+        $scope.message = reportProblemOptions.message;
+        $scope.button = reportProblemOptions.button;
+        $scope.show = $location.path() === '/fulldisplay' || $location.path() === '/openurl';
+        $scope.link = reportProblemOptions.base + $location.absUrl();
+    }]
+});
 // Force users to login to services page  
-app.component('prmAuthenticationAfter', {
+applocal.component('prmAuthenticationAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($location) {
         this.$onInit = function () {
