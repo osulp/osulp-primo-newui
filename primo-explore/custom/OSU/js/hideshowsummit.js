@@ -7,7 +7,6 @@ var enable_hide_show_other_institutions = false;
 var hide_show_other_institutions_default_state = "hidden";
 var hide_show_other_institutions_hide_libraries_button_label = "Hide Libraries";
 var hide_show_other_institutions_show_libraries_button_label = "Show Libraries";
-
 // hide/show other institutions set options from local config
 function hide_show_other_institutions(options) {
     if (typeof options === 'undefined') options = new Array();
@@ -18,7 +17,6 @@ function hide_show_other_institutions(options) {
 
     hide_show_other_institutions_add_button();
 }
-
 // hide/show other institutions add toggle button
 function hide_show_other_institutions_add_button() {
     if (hide_show_other_institutions_default_state == "visible") {
@@ -33,7 +31,6 @@ function hide_show_other_institutions_add_button() {
     // show the button
     angular.element(document.getElementsByClassName('hide_show_other_institutions_container')).removeClass("hide");
 }
-
 // hide/show other institutions toggle visibility of other institutions list
 function hide_show_other_institutions_toggle() {
     if (angular.element(document.querySelector('prm-alma-more-inst md-tabs')).hasClass("hide")) {
@@ -44,13 +41,10 @@ function hide_show_other_institutions_toggle() {
         angular.element(document.getElementsByClassName('hide_show_other_institutions_button')).text(hide_show_other_institutions_show_libraries_button_label);
     }
 }
-
 (function () {
     "use strict";
     'use strict';
-
     var app = angular.module('centralCustom', ['angularLoad']);
-
     // hide/show other institutions toggle button placeholder
     app.component('prmAlmaMoreInstAfter', {
         bindings: { parentCtrl: '<' },
