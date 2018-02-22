@@ -30,15 +30,6 @@ app.component('prmFacetExactAfter', {
     },
     template: '<div class="{{$ctrl.class}}"><div aria-label="Search in Worldcat" class="section-title md-button md-primoExplore-theme md-ink-ripple layout-fill" style="" ><div class="layout-align-start-center layout-row"><h3 class="section-title-header"><span title="External Search" translate="External Search"></span></h3></div><div class="md-ripple-container"></div></div><div aria-hidden="false" class="section-content animate-max-height-variable" style=""><div class="md-chips md-chips-wrap"><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Worldcat" ><a href="https://www.worldcat.org/search?qt=worldcat_org_all&q={{$ctrl.query}}" target="_blank"><img src="custom/OSU/img/worldcat.png" width="22" height="22" alt="worldcat-logo" style="vertical-align:middle;"> Search Worldcat</a></strong></div></div><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Google Scholar" ><a href="https://scholar.google.com/scholar?q={{$ctrl.query}}" target="_blank"> <img src="custom/OSU/img/gscholar.png" width="22" height="22" alt="google-scholar-logo" style="vertical-align:middle;"> Google Scholar</a></strong></div></div></div></div>'
 });
-// Fix icons in February release 
-
-angular.element(document).ready(function () {
-    var list = document.getElementsByClassName('fallback-img');
-    for (var i = 0; i < list.length; i++) {
-        var broken_src = list[i].getAttribute('src');
-        list[i].setAttribute('src', 'custom/CENTRAL_PACKAGE/' + broken_src);
-    }
-});
 // Hide/Show Summit Institutions 
 angular.element(document).ready(function () {
     hide_show_other_institutions();
@@ -115,21 +106,6 @@ applocal.component('prmLoansOverviewAfter', {
 app.component('prmSearchBookmarkFilterAfter', {
     bindings: {},
     template: '<div class="chat"><a ng-href="http://answers.library.oregonstate.edu/widget_standalone.php?hash=848ad121b384a3768c03838752654abb" target="_blank">Live Chat</a></div>'
-});
-//Add Report Problem Banner to Full Display
-applocal.constant('reportProblemOptions', {
-    message: "Having trouble accessing a resource?",
-    button: "Report a Problem",
-    base: "https://libraries.wsu.edu/online-access-issues?"
-});
-angular.module('reportProblem', []).component('prmActionListAfter', {
-    template: '\n    <div ng-if="show" class="bar filter-bar layout-align-center-center layout-row margin-top-medium" layout="row" layout-align="center center">\n        <span class="margin-right-small">{{ message }}</span>\n        <a ng-href="{{ link }}" target="_blank">\n            <button class="button-with-icon zero-margin md-button md-button-raised md-primoExplore-theme md-ink-ripple" type="button" aria-label="Report a Problem" style="color: #5c92bd;">\n                <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\n                <span style="text-transform: none;">{{ button }}</span>\n                <div class="md-ripple-container"></div>\n            </button>\n        </a>\n    </div>\n    ',
-    controller: ['$scope', '$location', '$httpParamSerializer', 'reportProblemOptions', function ($scope, $location, $httpParamSerializer, reportProblemOptions) {
-        $scope.message = reportProblemOptions.message;
-        $scope.button = reportProblemOptions.button;
-        $scope.show = $location.path() === '/fulldisplay' || $location.path() === '/openurl';
-        $scope.link = reportProblemOptions.base + $location.absUrl();
-    }]
 });
 // Force users to login to services page  
 app.component('prmAuthenticationAfter', {

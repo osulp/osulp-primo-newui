@@ -1,4 +1,4 @@
-// Fix icons in February release 
+/* Fix icons in February release - in progress 
 
 angular.element(document).ready(function () {
     var list = document.getElementsByClassName('fallback-img');
@@ -7,3 +7,5 @@ angular.element(document).ready(function () {
         list[i].setAttribute('src', 'custom/CENTRAL_PACKAGE/' + broken_src);
     }
 });
+
+*/
