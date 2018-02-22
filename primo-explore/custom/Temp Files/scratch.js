@@ -1,28 +1,9 @@
-// show/hide borrowing institutions   
-app.component('prmAlmaMoreInstAfter', {
-    controller: 'institutionToggleController',
-    template: '<md-button class="md-raised" ng-click="toggleLibs()">\n\t\t\t{{ showLibs ? \'Hide Libraries &laquo;\' : \'Show Libraries &raquo;\' }}\n\t\t\t</md-button>'
-}).controller('institutionToggleController', ['$scope', function ($scope) {
-    this.$onInit = function () {
-        $scope.showLibs = false;
-        $scope.button = angular.element(document.querySelector('prm-alma-more-inst-after'));
-        $scope.tabs = angular.element(document.querySelector('prm-alma-more-inst md-tabs'));
-        $scope.tabs.addClass('hide');
-        $scope.button.after($scope.tabs);
-        $scope.toggleLibs = function () {
-            $scope.showLibs = !$scope.showLibs;
-            if ($scope.tabs.hasClass('hide')) $scope.tabs.removeClass('hide');else $scope.tabs.addClass('hide');
-        };
-    };
-}]); 
-
 // OSU branding - header    
 app.component('prmshowPrimoExploreAfter', {
     bindings: {},
     templateUrl: 'custom/OSU/html/osu-header.html'
 });   
         
-    
 function add_custom_header(header_container)
 {
 	console.log("... in add_custom_header function");
@@ -103,102 +84,3 @@ app.constant('reportProblemOptions', {
   button: "Report a Problem",
   base: ""
 })
-
-// force users to login when visiting the page
-    
-    function osu_signin_polling() {
-	console.log("psu_signin_polling");
-	var popup = angular.element(document.querySelector('prm-login'));
-	var username = angular.element(document.querySelector('prm-user-area .user-name'));
-	if(popup.length == 0 && (username.length == 0 || username.text().trim() == "" || username.text().toLowerCase().trim() == "guest" || username.text().toLowerCase().trim() == "eshelf.user.anonymous" || username.text().toLowerCase().trim() == "sign in"))
-	{
-		var show_login_result = angular.element(document.querySelector('button[aria-label="Sign in"]')).triggerHandler("click");
-		if(show_login_result.length > 0)
-		{
-			console.log("showing login popup");
-		}
-		else
-			setTimeout(osu_signin_polling, 100);
-	}
-	else
-	{
-		console.log("stopping polling");
-		console.log(popup.length);
-		console.log(username.length);
-		console.log("["+username.text()+"]");
-	}
-}
-
-
-angular.element(document).ready(function(){
-	if(window.location.search.search("&signin=true") > -1) {
-		osu_signin_polling();
-	}
-});
-
-
-/* add oaDOI api search for resources outside of iframe  - disabled 9/21 due to errors  
-app.component('prmFullViewServiceContainerAfter', {
-  bindings: { parentCtrl: '<' },
-    controller: function controller($scope, $http, $element, oadoiService, oadoiOptions) {
-        this.$onInit = function() {
-        	$scope.oaDisplay=false; 
-          $scope.imagePath=oadoiOptions.imagePath;
-          var email=oadoiOptions.email;
-        	var section=$scope.$parent.$ctrl.service.scrollId;
-        	var obj=$scope.$ctrl.parentCtrl.item.pnx.addata;
-
-        	if (obj.hasOwnProperty("doi")){
-        		var doi=obj.doi[0];
-        		console.log("doi:"+doi)
-
-    				if (doi && section=="getit_link1_0"){
-    					var url="https://api.oadoi.org/v2/"+doi+"?email="+email;
-
-              var response=oadoiService.getOaiData(url).then(function(response){
-                console.log("it worked");
-                console.log(response);
-                var oalink=response.data.best_oa_location.url;
-                console.log(oalink);
-                if(oalink===null){
-                  $scope.oaDisplay=false;
-                  console.log("it's false");
-                  $scope.oaClass="ng-hide";
-                }
-                else{
-                  $scope.oalink=oalink;
-                  $scope.oaDisplay=true;
-                  $element.children().removeClass("ng-hide"); 
-                  $scope.oaClass="ng-show";
-                }
-
-              });
-
-
-    				}
-    				else{$scope.oaDisplay=false;
-    				}
-        	}
-        	else{
-        		$scope.oaClass="ng-hide";
-        	}
-        };
-
-    },
-  template: '<div style="height:50px;background-color:white;padding:15px;" ng-show="{{oaDisplay}}" class="{{oaClass}}"><img src="{{imagePath}}" style="float:left;height:22px;width:22px;margin-right:10px"><p >Full text available via: <a href="{{oalink}}" target="_blank" style="font-weight:600;font-size:15px;color;#2c85d4;">Open Access</a></p></div>'
-}).factory('oadoiService', ['$http',function($http){
-  return{
-    getOaiData: function (url) {
-      return $http({
-        method: 'GET',
-        url: url,
-        cache: true
-      })
-    }
-  }
-}]).run(
-  ($http) => {
-    // Necessary for requests to succeed...not sure why
-    $http.defaults.headers.common = { 'X-From-ExL-API-Gateway': undefined }
-  },
-); */
