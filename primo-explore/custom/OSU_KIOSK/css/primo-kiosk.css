@@ -1,0 +1,25 @@
+/* Kiosk Styling */
+
+body { font-size: 12px !important;}
+
+.section-title-header { font-size: 12px !important; }
+
+prm-search-bookmark-filter { display: none; }
+
+prm-user-area { display: none; }
+
+prm-resource-recommender { display: none; }
+
+prm-login-alma-mashup { display: none; }
+
+#services-index { display: none; }
+
+#action_list > div:nth-child(1) > prm-full-view-service-container:nth-child(1) { display: none; }
+
+.result-item-actions { display: none; }
+
+#fixed-buttons-holder { display: none; }
+
+md-card.default-card { line-height: 1.1rem; }
+
+/* End Kiosk Styling */
