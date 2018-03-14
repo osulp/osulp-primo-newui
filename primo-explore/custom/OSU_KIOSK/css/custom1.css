@@ -167,6 +167,9 @@ prm-login-alma-mashup { display: none; }
 
 md-card.default-card { line-height: 1.1rem; }
 
-html#primoExploreRoot body.md-dialog-is-showing primo-explore.__xl.__gt-xs.__gt-sm.__gt-md.__gt-lg div.md-dialog-container.fixed-container div.layout-row md-dialog.md-dialog-full.prm-full-view-dialog._md.md-primoExplore-theme.md-dialog-fullscreen._md-transition-in md-dialog-content#dialogContent_74.layout-row sticky-scroll.flex-100 prm-full-view#fullView.flex-100 div div#full-view-container.full-view-container.layout-xs-column.layout-sm-column.layout-gt-sm-row.flex div.full-view-inner-container.flex div#getit_link1_0.full-view-section div.full-view-section-content prm-full-view-service-container div.section-body { width: 810.3px !important; }
+/* Sets the Alma iframe width to a static value on the Kiosk so that the Mashup media query will hide external links */ 
+prm-full-view-service-container div.section-body { width: 811px !important; }
+
+prm-alma-more-inst { display: none; }
 
 /* End Kiosk Styling */
