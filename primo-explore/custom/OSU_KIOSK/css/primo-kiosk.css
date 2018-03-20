@@ -22,6 +22,11 @@ prm-login-alma-mashup { display: none; }
 
 md-card.default-card { line-height: 1.1rem; }
 
+#searchBar {
+    background: inherit !important; 
+    border: none !important; 
+}
+
 /* Sets the Alma iframe width to a static value on the Kiosk so that the Mashup media query will hide external links */ 
 prm-full-view-service-container div.section-body { width: 811px !important; }
 

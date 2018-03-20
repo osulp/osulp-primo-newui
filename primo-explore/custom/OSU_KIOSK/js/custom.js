@@ -13,24 +13,21 @@ var applocal = angular.module('viewCustom', ['angularLoad']);
 // var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
 
+/* Adds jQuery */
+
+
 /* Add JS keyboard */
 app.component('prmTopBarBefore', {
     bindings: { parentCtrl: '<' },
     controller: function controller() {
         this.$onInit = function () {
-            loadScript("//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js", jquery_loaded);
-            loadScript("//ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js", jquery_ui_loaded);
-            loadScript("//cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.28.0/js/jquery.keyboard.js", jquery_keyboard_loaded);
+            loadJquery("//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js", loadScript);
         };
     },
     template: '<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.28.0/css/keyboard.min.css" rel="stylesheet">'
 });
 
-applocal.controller('prmSearchBar', ['angularLoad', function (angularLoad) {
-    var options = {};
-    var target_input = '#searchBar';
-    $(target_input).keyboard(options);
-}]);
+
 
 /** Show search scopes by default on basic searches **/
 applocal.component('prmSearchBarAfter', {
@@ -53,3 +50,44 @@ ga('create', 'UA-35760875-20');
 ga('send', 'pageview');
 ga('set', 'anonymizeIp', true);
 })();
+
+function loadJquery(url, callback) {
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onreadystatechange = callback;
+    script.onload = callback;
+    head.appendChild(script);   
+}
+
+function loadScript() {
+    var urls = [["//ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js", undefined], ["//cdnjs.cloudflare.com/ajax/libs/virtual-keyboard/1.28.0/js/jquery.keyboard.js", setTimeout(jquery_loaded, 5000)]];
+    var head = document.getElementsByTagName('head')[0];
+    for (var url in urls) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = urls[url][0];
+        if (urls[url][1] !== undefined){
+            script.onreadystatechange = urls[url][1];
+            script.onload = urls[url][1];
+        }
+        head.appendChild(script);
+    }
+}
+
+var jquery_loaded = function() {
+	console.log("jquery loaded");
+	// load custom header
+	$(document).ready(function(){
+		var header_container = $('#searchBar2');
+        if(header_container.length > 0) {
+            var options = {
+                accepted: function(e, keyboard, el) {
+                    $('button.button-confirm').click();
+                }
+            };
+            $(header_container).keyboard(options);
+        }
+	});
+};
