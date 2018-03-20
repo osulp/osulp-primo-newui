@@ -1,13 +1,3 @@
-// load jquery - needed for custom header ubermenu
-app.component('prmTopBarBefore', {
-    bindings: {parentCtrl: '<'},
-    controller: function () {
-        this.$onInit = function () {
-            loadScript("//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", jquery_loaded);
-        };
-    },
-    template: ''
-});
 
 /* Add JS keyboard */ 
 app.component('prmTopBarBefore', {
