@@ -48,7 +48,7 @@
     /* End anonymous function */     
     })();
     
-    function loadJquery(url, callback) {
+   /*  function loadJquery(url, callback) {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.type = 'text/javascript';
@@ -87,4 +87,4 @@
                 $(header_container).keyboard(options);
             }
         });
-    };
+    };*/ 
