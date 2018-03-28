@@ -1,5 +1,5 @@
-//Add Report Problem Banner to Full Display
-applocal.constant('reportProblemOptions', {
+// Add Report Problem Banner to Full Display
+app.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
     button: "Report a Problem",
     base: "https://libraries.wsu.edu/online-access-issues?"
@@ -14,3 +14,4 @@ applocal.constant('reportProblemOptions', {
           $scope.link = reportProblemOptions.base + $location.absUrl()
     }]
   });
+  

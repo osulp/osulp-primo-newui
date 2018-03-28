@@ -3,18 +3,15 @@
 'use strict';
 
 /************************************* BEGIN Bootstrap Script ************************************/
-
 /* We are a CENTRAL_PACKAGE, so use the below line to bootstrap the module */
 
-var app = angular.module('centralCustom', ['angularLoad']);
-
-var applocal = angular.module('viewCustom', ['angularLoad']);
+var app = angular.module('viewCustom', ['angularLoad']);
 
 // var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
 
 // Add Google Scholar and Worldcat search in facet pane 
-applocal.component('prmFacetExactAfter', {
+app.component('prmFacetExactAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($scope) {
         console.log($scope.$parent.$ctrl.facetGroup.name);
@@ -93,18 +90,20 @@ function hide_show_other_institutions_toggle() {
     });
 })();
 // Add link to ILL in My Account
-applocal.component('prmLoansOverviewAfter', {
+app.component('prmLoansOverviewAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($scope, $element) {},
     template: '<div class=tiles-grid-tile><div class="layout-column tile-content"layout=column><div class="layout-column tile-header"layout=column><h2 class="header-link light-text"role=button tabindex=0><span>Interlibrary Loan</span></h2></div><div class="layout-column layout-align-center-center layout-margin layout-padding message-with-icon" layout=column layout-align="center center"><span><a href="https://access.library.oregonstate.edu/illiad.dll?" target="_blank" aria-label="Link to Interlibrary Loan login" tabindex="0">Log into your ILL account</a> to check pending requests and view articles.</span></div></div></div>'
 });
+
 // Add chat widget to header 
-applocal.component('prmSearchBookmarkFilterAfter', {
+app.component('prmSearchBookmarkFilterAfter', {
     bindings: {},
     template: '<div class="chat"><a ng-href="http://answers.library.oregonstate.edu/widget_standalone.php?hash=848ad121b384a3768c03838752654abb" target="_blank">Live Chat</a></div>'
 });
-//Add Report Problem Banner to Full Display
-applocal.constant('reportProblemOptions', {
+
+// Add Report Problem Banner to Full Display
+app.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
     button: "Report a Problem",
     base: "https://libraries.wsu.edu/online-access-issues?"
@@ -118,8 +117,9 @@ angular.module('reportProblem', []).component('prmActionListAfter', {
         $scope.link = reportProblemOptions.base + $location.absUrl();
     }]
 });
+
 // Force users to login to services page  
-applocal.component('prmAuthenticationAfter', {
+app.component('prmAuthenticationAfter', {
     bindings: { parentCtrl: '<' },
     controller: function controller($location) {
         this.$onInit = function () {
@@ -129,15 +129,18 @@ applocal.component('prmAuthenticationAfter', {
         };
     }
 });
-/** Show search scopes by default on basic searches **/
-applocal.component('prmSearchBarAfter', {
+
+// Show search scopes by default on basic searches
+app.component('prmSearchBarAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchBarAfterController'
 });
-applocal.controller('SearchBarAfterController', ['angularLoad', function (angularLoad) {
+app.controller('SearchBarAfterController', ['angularLoad', function (angularLoad) {
     var vm = this;
     vm.parentCtrl.showTabsAndScopes = true;
 }]);
+
+// Analytics
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments);
