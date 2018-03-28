@@ -1,5 +1,5 @@
 // Force users to login to services page  
-applocal.component('prmAuthenticationAfter', {
+app.component('prmAuthenticationAfter', {
     bindings: { parentCtrl: '<' },
     controller: function($location) {
         this.$onInit = function() {
