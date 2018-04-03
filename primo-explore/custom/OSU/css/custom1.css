@@ -142,6 +142,8 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
     display: none;
 }
 
+#facets > prm-facet > div { z-index: 0 !important; }
+
 /* End Primo fixes */ 
 /* Begin Primo media queries */
 
