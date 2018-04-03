@@ -32,6 +32,7 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
     display: none;
 }
 
+/* Corrects "floating" facet text */ 
 #facets > prm-facet > div { z-index: 0 !important; }
 
 /* End Primo fixes */ 
