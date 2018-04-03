@@ -6,6 +6,5 @@ app.component('prmActionListAfter', {
     index=5
     icon="ic_find_in_page_24px"
     icon-set="action"
-    link="/primo-explore/fulldisplay?docid={pnx.search.recordid[0]}&vid=WW&showPnx=true" />
-    <sms-action />`
+    link="/primo-explore/fulldisplay?docid={pnx.search.recordid[0]}&vid=OSU&showPnx=true" />`
 }); 

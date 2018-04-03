@@ -13,7 +13,7 @@ var app = angular.module('viewCustom', ['angularLoad', 'customActions']);
 // Add Custom Action
 
 app.component('prmActionListAfter', {
-    template: '<custom-action name="open_pnx"\n    label="View PNX"\n    index=5\n    icon="ic_find_in_page_24px"\n    icon-set="action"\n    link="/primo-explore/fulldisplay?docid={pnx.search.recordid[0]}&vid=WW&showPnx=true" />\n    <sms-action />'
+    template: '<custom-action name="open_pnx"\n    label="View PNX"\n    index=5\n    icon="ic_find_in_page_24px"\n    icon-set="action"\n    link="/primo-explore/fulldisplay?docid={pnx.search.recordid[0]}&vid=OSU&showPnx=true" />'
 });
 
 // Add Google Scholar and Worldcat search in facet pane 
