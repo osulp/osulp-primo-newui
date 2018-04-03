@@ -5,10 +5,16 @@
 /************************************* BEGIN Bootstrap Script ************************************/
 /* We are a CENTRAL_PACKAGE, so use the below line to bootstrap the module */
 
-var app = angular.module('viewCustom', ['angularLoad']);
+var app = angular.module('viewCustom', ['angularLoad', 'customActions']);
 
 // var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
+
+// Add Custom Action
+
+app.component('prmActionListAfter', {
+    template: '<custom-action name="open_pnx"\n    label="View PNX"\n    index=5\n    icon="ic_find_in_page_24px"\n    icon-set="action"\n    link="/primo-explore/fulldisplay?docid={pnx.search.recordid[0]}&vid=WW&showPnx=true" />\n    <sms-action />'
+});
 
 // Add Google Scholar and Worldcat search in facet pane 
 app.component('prmFacetExactAfter', {
