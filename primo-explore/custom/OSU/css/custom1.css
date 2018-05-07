@@ -163,7 +163,7 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
 /* Netbook/Laptop styles */ 
 @media (max-width: 1280px) and (min-width: 960px)
 {
-    body { background-color: SandyBrown !important; font-size: 10pt !important; }
+    body { background-color: !important; font-size: 12pt !important; }
 
     h3.section-title-header { font-size: 1em !important; }
 
@@ -171,7 +171,7 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
 
     #facets { padding-left: 2px; }
 
-    #services-index button { white-space: normal; border: 1px dashed lightgrey; margin-bottom: 3px !important; text-transform: none; }
+    #services-index button { white-space: normal; border: 1px dashed lightgrey; margin-bottom: 3px !important; text-transform: none; line-height: 1.5em; }
 
     strong.facet-title { overflow: visible !important; }
 
