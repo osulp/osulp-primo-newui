@@ -163,7 +163,7 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
 /* Netbook/Laptop styles */ 
 @media (max-width: 1280px) and (min-width: 960px)
 {
-    body { background-color: !important; font-size: 12pt !important; }
+    body { background-color: Sandybrown !important; font-size: 10pt !important; }
 
     h3.section-title-header { font-size: 1em !important; }
 
