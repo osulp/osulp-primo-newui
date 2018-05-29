@@ -5,7 +5,7 @@
 /************************************* BEGIN Bootstrap Script ************************************/
 /* We are a CENTRAL_PACKAGE, so use the below line to bootstrap the module */
 
-var app = angular.module('viewCustom', ['angularLoad']);
+var app = angular.module('viewCustom', ['angularLoad', 'reportProblem']);
 
 // var applocal = angular.module('viewCustom', ['angularLoad','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
@@ -29,13 +29,13 @@ app.component('prmFacetExactAfter', {
     template: '<div class="{{$ctrl.class}}"><div aria-label="Search in Worldcat" class="section-title md-button md-primoExplore-theme md-ink-ripple layout-fill" style="" ><div class="layout-align-start-center layout-row"><h3 class="section-title-header"><span title="External Search" translate="External Search"></span></h3></div><div class="md-ripple-container"></div></div><div aria-hidden="false" class="section-content animate-max-height-variable" style=""><div class="md-chips md-chips-wrap"><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Worldcat" ><a href="https://www.worldcat.org/search?qt=worldcat_org_all&q={{$ctrl.query}}" target="_blank"><img src="custom/OSU/img/worldcat.png" width="22" height="22" alt="worldcat-logo" style="vertical-align:middle;"> Search Worldcat</a></strong></div></div><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Google Scholar" ><a href="https://scholar.google.com/scholar?q={{$ctrl.query}}" target="_blank"> <img src="custom/OSU/img/gscholar.png" width="22" height="22" alt="google-scholar-logo" style="vertical-align:middle;"> Google Scholar</a></strong></div></div></div></div>'
 });
 
-// Hide/Show Summit Institutions 
+/* Hide/Show Summit Institutions 
 hide_show_other_institutions({
     'default_state': 'hidden',
     'show_libraries_button_label': 'Show Summit Libraries',
     'hide_libraries_button_label': 'Hide Summit Libraries'
 });
-
+*/
 // Add link to ILL in My Account
 app.component('prmLoansOverviewAfter', {
     bindings: { parentCtrl: '<' },
@@ -53,7 +53,7 @@ app.component('prmSearchBookmarkFilterAfter', {
 app.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
     button: "Report a Problem",
-    base: "https://libraries.wsu.edu/online-access-issues?"
+    base: "https://drupal-test.library.oregonstate.edu/submit-problem?"
 });
 angular.module('reportProblem', []).component('prmActionListAfter', {
     template: '\n    <div ng-if="show" class="bar filter-bar layout-align-center-center layout-row margin-top-medium" layout="row" layout-align="center center">\n        <span class="margin-right-small">{{ message }}</span>\n        <a ng-href="{{ link }}" target="_blank">\n            <button class="button-with-icon zero-margin md-button md-button-raised md-primoExplore-theme md-ink-ripple" type="button" aria-label="Report a Problem" style="color: #5c92bd;">\n                <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\n                <span style="text-transform: none;">{{ button }}</span>\n                <div class="md-ripple-container"></div>\n            </button>\n        </a>\n    </div>\n    ',
