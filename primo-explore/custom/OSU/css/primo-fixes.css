@@ -36,7 +36,6 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
 #facets > prm-facet > div { z-index: 0 !important; }
 
 /* Corrects index link on full record pages */ 
-
 #services-index button { white-space: normal; border: 1px solid lightgrey; margin-bottom: 3px !important; text-transform: none; line-height: 1.5em; width: 100%; }
 
 /* End Primo fixes */ 
