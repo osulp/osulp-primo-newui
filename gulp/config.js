@@ -149,9 +149,11 @@ var SERVERS = {
  * 
  * Production:
  *   var PROXY_SERVER = 'https://alliance-primo.hosted.exlibrisgroup.com:443';
+ * Sandbox: 
+ *   var PROXY_SERVER = 'http://alliance-primo-sb.hosted.exlibrisgroup.com:80';
  */
 
-var PROXY_SERVER = 'http://alliance-primo-sb.hosted.exlibrisgroup.com:80';
+var PROXY_SERVER = 'https://alliance-primo.hosted.exlibrisgroup.com:443';
 
 let buildParams = {
     customFile: customFile,
