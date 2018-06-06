@@ -5,7 +5,7 @@
 /************************************* BEGIN Bootstrap Script ************************************/
 /* We are a CENTRAL_PACKAGE, so use the below line to bootstrap the module */
 
-var app = angular.module('viewCustom', ['angularLoad']);
+var app = angular.module('viewCustom', ['angularLoad', 'reportProblem']);
 
 // var app = angular.module('viewCustom', ['angularLoad','toggleInstitutions','reportProblem']);
 /************************************* END Bootstrap Script ************************************/
@@ -55,7 +55,7 @@ app.component('prmSearchBookmarkFilterAfter', {
 app.constant('reportProblemOptions', {
     message: "Having trouble accessing a resource?",
     button: "Report a Problem",
-    base: "https://libraries.wsu.edu/online-access-issues?"
+    base: "https://library.oregonstate.edu/submit-problem?"
 });
 angular.module('reportProblem', []).component('prmActionListAfter', {
     template: '\n    <div ng-if="show" class="bar filter-bar layout-align-center-center layout-row margin-top-medium" layout="row" layout-align="center center">\n        <span class="margin-right-small">{{ message }}</span>\n        <a ng-href="{{ link }}" target="_blank">\n            <button class="button-with-icon zero-margin md-button md-button-raised md-primoExplore-theme md-ink-ripple" type="button" aria-label="Report a Problem" style="color: #5c92bd;">\n                <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\n                <span style="text-transform: none;">{{ button }}</span>\n                <div class="md-ripple-container"></div>\n            </button>\n        </a>\n    </div>\n    ',
@@ -100,10 +100,3 @@ ga('create', 'UA-35760875-20');
 ga('send', 'pageview');
 ga('set', 'anonymizeIp', true);
 })();
-
- // Hide/Show Summit Institutions 
- hide_show_other_institutions({
-	'default_state': 'hidden',
-	'show_libraries_button_label': 'Show Summit Libraries',
-	'hide_libraries_button_label': 'Hide Summit Libraries'
-});	 
