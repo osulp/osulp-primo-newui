@@ -11,7 +11,7 @@ app.constant('reportProblemOptions', {
           $scope.message = reportProblemOptions.message
           $scope.button = reportProblemOptions.button
           $scope.show = $location.path() === '/fulldisplay' || $location.path() === '/openurl'
-          $scope.link = reportProblemOptions.base + $location.absUrl()
+          $scope.link = reportProblemOptions.base + $location.url()
     }]
   });
   
