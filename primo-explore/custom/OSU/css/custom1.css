@@ -54,10 +54,6 @@ div.chat a:hover { text-decoration: none; color: white !important; }
     color: #e08303 !important;
 }
 
-prm-main-menu .top-nav-bar-links>a[aria-label="Browse"] {
-  display: none;
-}
-
 prm-main-menu[menu-type="full"] div.custom-links-container > md-card:last-child {
     display:none;
 }
