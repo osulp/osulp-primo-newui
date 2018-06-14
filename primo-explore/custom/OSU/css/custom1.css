@@ -54,10 +54,6 @@ div.chat a:hover { text-decoration: none; color: white !important; }
     color: #e08303 !important;
 }
 
-prm-main-menu .top-nav-bar-links>a[aria-label="Browse"] {
-  display: none;
-}
-
 prm-main-menu[menu-type="full"] div.custom-links-container > md-card:last-child {
     display:none;
 }
@@ -146,7 +142,9 @@ html#primoExploreRoot body primo-explore.__lgPlus.__gt-xs.__gt-sm.__gt-md div pr
 #facets > prm-facet > div { z-index: 0 !important; }
 
 /* Corrects index link on full record pages */ 
-#services-index button { white-space: normal; border: 1px solid lightgrey; margin-bottom: 3px !important; text-transform: none; line-height: 1.5em; width: 100%; }
+#services-index button { white-space: normal; border: 1px solid lightgrey; margin-bottom: 3px !important; text-transform: none; line-height: 1.5em; width: 100%; max-width: 95%; }
+
+prm-recomendations md-icon, prm-recomendations prm-icon { display: none; }
 
 /* End Primo fixes */ 
 /* Begin Primo media queries */
