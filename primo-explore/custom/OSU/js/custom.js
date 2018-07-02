@@ -2,14 +2,13 @@
 "use strict";
 'use strict';
 
-/************************************* BEGIN Bootstrap Script ************************************/
-/* We are a CENTRAL_PACKAGE, so use the below line to bootstrap the module */
+/* BEGIN Bootstrap Script */
 
-var app = angular.module('viewCustom', ['angularLoad']);
+var app = angular.module('viewCustom', ['angularLoad', 'toggleInstitutions']);
 
 // var app = angular.module('viewCustom', ['angularLoad','toggleInstitutions','reportProblem']);
-/************************************* END Bootstrap Script ************************************/
 
+/* END Bootstrap Script */
 // Add Google Scholar and Worldcat search in facet pane 
 app.component('prmFacetExactAfter', {
     bindings: { parentCtrl: '<' },
@@ -29,14 +28,13 @@ app.component('prmFacetExactAfter', {
     template: '<div class="{{$ctrl.class}}"><div aria-label="Search in Worldcat" class="section-title md-button md-primoExplore-theme md-ink-ripple layout-fill" style="" ><div class="layout-align-start-center layout-row"><h3 class="section-title-header"><span title="External Search" translate="External Search"></span></h3></div><div class="md-ripple-container"></div></div><div aria-hidden="false" class="section-content animate-max-height-variable" style=""><div class="md-chips md-chips-wrap"><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Worldcat" ><a href="https://www.worldcat.org/search?qt=worldcat_org_all&q={{$ctrl.query}}" target="_blank"><img src="custom/OSU/img/worldcat.png" width="22" height="22" alt="worldcat-logo" style="vertical-align:middle;"> Search Worldcat</a></strong></div></div><div aria-live="polite" class="md-chip animate-opacity-and-scale facet-element-marker-local4"><div class="md-chip-content layout-row" role="button" tabindex="0"><strong dir="auto" title="Search Google Scholar" ><a href="https://scholar.google.com/scholar?q={{$ctrl.query}}" target="_blank"> <img src="custom/OSU/img/gscholar.png" width="22" height="22" alt="google-scholar-logo" style="vertical-align:middle;"> Google Scholar</a></strong></div></div></div></div>'
 });
 
-/* Hide/Show Summit Institutions - go live July 2018
+/* Hide/Show Summit Institutions */
 app.component('prmAlmaMoreInstAfter', { template: '<toggle-institutions />' });
 app.constant('showHideMoreInstOptions', {
-	default_state: "hidden",
-	show_label: "Show Summit libraries",
-	hide_label: "Hide Summit libraries"
+    default_state: "hidden",
+    show_label: "Show Summit libraries",
+    hide_label: "Hide Summit libraries"
 });
-*/
 
 // Add link to ILL in My Account
 app.component('prmLoansOverviewAfter', {
@@ -100,10 +98,3 @@ ga('create', 'UA-35760875-20');
 ga('send', 'pageview');
 ga('set', 'anonymizeIp', true);
 })();
-
- // Hide/Show Summit Institutions 
- hide_show_other_institutions({
-	'default_state': 'hidden',
-	'show_libraries_button_label': 'Show Summit Libraries',
-	'hide_libraries_button_label': 'Hide Summit Libraries'
-});	 
