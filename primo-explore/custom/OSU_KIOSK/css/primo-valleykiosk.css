@@ -1,0 +1,33 @@
+/* Kiosk Styling */
+
+body { font-size: 12px !important;}
+
+prm-static[section="homepage"] { padding-left: 5em; }
+
+prm-resource-recommender { display: none; }
+
+prm-login-alma-mashup { display: none; }
+
+#services-index { display: none; }
+
+#action_list > div:nth-child(1) > prm-full-view-service-container:nth-child(1) { display: none; }
+
+.result-item-actions { display: none; }
+
+#fixed-buttons-holder { display: none; }
+
+md-card.default-card { line-height: 1.1rem; }
+
+/* Hides search bar for Kiosk search 
+prm-search-bar, prm-topbar { display: none; }
+
+/* Sets the Alma iframe width to a static value on the Kiosk so that the Mashup media query will hide external links */ 
+prm-full-view-service-container div.section-body { width: 811px !important; }
+
+prm-alma-more-inst { display: none; }
+
+#facets { max-width: 20% !important; }
+
+div.results-container, span.results-count { margin-left: 5em !important; }
+
+/* End Kiosk Styling */
